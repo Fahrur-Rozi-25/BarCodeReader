@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Akses Kamera</title>
+</head>
+<body>
+    <h1>Akses Kamera</h1>
+    <video id="video-element" autoplay></video>
+
+    <script>
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then((stream) => {
+                const videoElement = document.getElementById('video-element');
+                videoElement.srcObject = stream;
+            })
+            .catch((error) => {
+                console.error('Gagal mengakses kamera: ', error);
+            });
+    </script>
+</body>
+</html>
